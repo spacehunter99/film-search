@@ -13,7 +13,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   gap: 0px;
   justify-content: center;
   align-items: center;
@@ -168,7 +168,7 @@ main .film-content-section .film-content .description-and-button-section .web-ur
 @media (max-width: 690px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
   }
   .nav-container {
     background: url(/public/img/backStage.png) 70px -200px;
@@ -197,7 +197,7 @@ main .film-content-section .film-content .description-and-button-section .web-ur
     grid-row: 1/2;
   }
   main .film-content-section .film-content .film-data {
-    margin-top: 40px;
+    margin-top: 60px;
     border: 1px solid darkorange;
     border-radius: 10px;
     grid-column: 1/4;
@@ -215,12 +215,12 @@ main .film-content-section .film-content .description-and-button-section .web-ur
     grid-column: 1/4;
     grid-row: 3/4;
     align-self: flex-start;
-    margin-top: 20px;
+    margin-top: 30px;
     font-size: 18px;
     line-height: 1.7;
   }
   main .film-content-section .film-content .description-and-button-section .web-url {
-    margin-top: 30px;
+    margin-bottom: 100px;
     height: 44px;
     width: 300px;
     font-size: 20px;
