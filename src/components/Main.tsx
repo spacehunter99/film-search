@@ -2,13 +2,25 @@ import React from 'react';
 
 export default function Main() {
 
-    const [userInput, setUserInput] = React.useState("")
+    interface dataInerface {
+        posterUrl?: string,
+        nameOriginal?: string,
+        nameRu?: string,
+        year?: string,
+        slogan?: string,
+        ratingKinopoisk?: string,
+        filmLength?: string,
+        description?: string,
+        webUrl?: string
+    }
 
-    const [request, setRequest] = React.useState("")
+    const [userInput, setUserInput] = React.useState<string>("")
 
-    const [filmId, setFilmId] = React.useState("")
+    const [request, setRequest] = React.useState<string>("")
 
-    const [allData, setAllData] = React.useState({
+    const [filmId, setFilmId] = React.useState<string>("")
+
+    const [allData, setAllData] = React.useState<dataInerface>({
         posterUrl: "",
         nameOriginal: "",
         nameRu: "",
@@ -20,7 +32,7 @@ export default function Main() {
         webUrl: ""
     })
 
-    let url = encodeURIComponent(`${request}`);
+    let url: string = encodeURIComponent(`${request}`);
 
     React.useEffect(() => {
         fetch(`//kinopoiskapiunofficial.tech/api/v2.2/films?keyword=${url}&page=1`, {
@@ -57,16 +69,16 @@ export default function Main() {
             }))
     }, [url, filmId])
 
-   function handleChange(event: any) {
+   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         setUserInput(event.target.value)
    }
 
-   function handleClick(event: any) {
+   function handleClick(event: React.MouseEvent<HTMLButtonElement> | React.FormEvent<HTMLFormElement>) {
         event.preventDefault()
         setRequest(userInput)
    }
 
-   console.log(allData)
+//    console.log(allData)
 
     return (
         <main className='container flex'>
@@ -85,6 +97,7 @@ export default function Main() {
                     Начать поиск
                 </button>
             </form>
+
             <div className='film-content-section container'>
                 { request
                 ? <div className='film-content grid'>
